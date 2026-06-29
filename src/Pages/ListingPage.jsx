@@ -38,7 +38,7 @@ export default function ListingPage() {
       {/* Hero */}
       <div style={{
         background: "linear-gradient(160deg, #1c1c1e 0%, #2c2c2e 100%)",
-        padding: "56px 32px",
+        padding: "32px 32px 48px",
         textAlign: "center"
       }}>
         <h1 style={{
@@ -80,7 +80,7 @@ export default function ListingPage() {
 
       {/* Filter Bar */}
       <div style={{
-        position: "sticky", top: 56, zIndex: 90,
+        position: "sticky", top: 0, zIndex: 90,
         background: "#fff", borderBottom: "1px solid #ebebeb",
         boxShadow: "0 2px 8px rgba(0,0,0,0.04)"
       }}>
