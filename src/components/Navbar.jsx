@@ -17,14 +17,13 @@ export default function Navbar() {
       height: 56,
       background: "#fff",
       borderBottom: "1px solid #ebebeb",
-      position: "sticky",
+      position: "fixed",
       top: 0,
       left: 0,
       right: 0,
-      zIndex: 100,
-      margin: 0,
+      zIndex: 1000,
       boxSizing: "border-box",
-      width: "100%"
+      boxShadow: "0 1px 4px rgba(0,0,0,0.06)"
     }}>
 
       <Link to="/" style={{
@@ -32,14 +31,14 @@ export default function Navbar() {
         alignItems: "center", gap: 10, flexShrink: 0
       }}>
         <div style={{
-          width: 32, height: 32,
+          width: 30, height: 30,
           background: "linear-gradient(135deg, #1c1c1e, #3a3a3c)",
-          borderRadius: 9, display: "flex", alignItems: "center",
-          justifyContent: "center", fontSize: 16, flexShrink: 0
+          borderRadius: 8, display: "flex", alignItems: "center",
+          justifyContent: "center", fontSize: 14, flexShrink: 0
         }}>
           🛍
         </div>
-        <div style={{ display: "flex", alignItems: "baseline", gap: 0 }}>
+        <div style={{ display: "flex", alignItems: "baseline" }}>
           <span style={{
             fontSize: 17, fontWeight: 800, color: "#1c1c1e",
             letterSpacing: -0.5, fontFamily: "'Inter', 'Segoe UI', sans-serif"
@@ -64,7 +63,7 @@ export default function Navbar() {
           transition: "background 0.15s", flexShrink: 0,
           fontFamily: "'Inter', 'Segoe UI', sans-serif"
         }}>
-        <span style={{ fontSize: 16 }}>🛒</span>
+        <span>🛒</span>
         <span>Cart</span>
         {totalItems > 0 && (
           <span style={{

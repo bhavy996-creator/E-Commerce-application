@@ -32,25 +32,31 @@ export default function ListingPage() {
       background: "#f5f5f0",
       minHeight: "100vh",
       fontFamily: "'Inter', 'Segoe UI', sans-serif",
-      overflowX: "hidden"
+      overflowX: "hidden",
+      paddingTop: 56
     }}>
 
       {/* Hero */}
       <div style={{
         background: "linear-gradient(160deg, #1c1c1e 0%, #2c2c2e 100%)",
-        padding: "32px 32px 48px",
+        padding: "48px 32px",
         textAlign: "center"
       }}>
         <h1 style={{
           fontSize: 42, fontWeight: 800, color: "#f5f5f0",
-          letterSpacing: -1.2, marginBottom: 10, lineHeight: 1.15
+          letterSpacing: -1.2, marginBottom: 10, lineHeight: 1.15,
+          fontFamily: "'Inter', 'Segoe UI', sans-serif"
         }}>
           Find what you love.
         </h1>
-        <p style={{ color: "#8e8e93", fontSize: 15, marginBottom: 30 }}>
+        <p style={{
+          color: "#8e8e93", fontSize: 15, marginBottom: 30,
+          fontFamily: "'Inter', 'Segoe UI', sans-serif"
+        }}>
           194 products · Free shipping above $50
         </p>
 
+        {/* Search */}
         <div style={{
           maxWidth: 480, margin: "0 auto",
           display: "flex", alignItems: "center",
@@ -65,7 +71,8 @@ export default function ListingPage() {
             style={{
               flex: 1, background: "transparent", border: "none",
               outline: "none", fontSize: 14, color: "#1c1c1e",
-              padding: "9px 0", fontFamily: "'Inter', 'Segoe UI', sans-serif"
+              padding: "9px 0",
+              fontFamily: "'Inter', 'Segoe UI', sans-serif"
             }}
           />
           {search && (
@@ -80,10 +87,11 @@ export default function ListingPage() {
 
       {/* Filter Bar */}
       <div style={{
-        position: "sticky", top: 0, zIndex: 90,
+        position: "sticky", top: 56, zIndex: 90,
         background: "#fff", borderBottom: "1px solid #ebebeb",
         boxShadow: "0 2px 8px rgba(0,0,0,0.04)"
       }}>
+        {/* Category Pills */}
         <div style={{
           display: "flex", gap: 6, overflowX: "auto",
           padding: "12px 24px 0", scrollbarWidth: "none"
@@ -105,11 +113,15 @@ export default function ListingPage() {
           ))}
         </div>
 
+        {/* Count + Sort */}
         <div style={{
           display: "flex", justifyContent: "space-between",
           alignItems: "center", padding: "10px 24px"
         }}>
-          <span style={{ fontSize: 13, color: "#aaa" }}>
+          <span style={{
+            fontSize: 13, color: "#aaa",
+            fontFamily: "'Inter', 'Segoe UI', sans-serif"
+          }}>
             {filtered.length} products
           </span>
           <select value={sort} onChange={e => setSort(e.target.value)} style={{
@@ -199,7 +211,8 @@ export default function ListingPage() {
               }}>
                 <p style={{
                   fontSize: 10, color: "#b0b0b0",
-                  textTransform: "uppercase", letterSpacing: 1, fontWeight: 600
+                  textTransform: "uppercase", letterSpacing: 1, fontWeight: 600,
+                  fontFamily: "'Inter', 'Segoe UI', sans-serif"
                 }}>
                   {p.category}
                 </p>
@@ -208,7 +221,8 @@ export default function ListingPage() {
                   fontSize: 14, fontWeight: 600, color: "#1c1c1e",
                   lineHeight: 1.4,
                   display: "-webkit-box", WebkitLineClamp: 2,
-                  WebkitBoxOrient: "vertical", overflow: "hidden"
+                  WebkitBoxOrient: "vertical", overflow: "hidden",
+                  fontFamily: "'Inter', 'Segoe UI', sans-serif"
                 }}>
                   {p.title}
                 </p>
@@ -219,21 +233,31 @@ export default function ListingPage() {
                     background: p.rating >= 4 ? "#e8f5ee" : p.rating >= 3 ? "#fff4e5" : "#fff0f0",
                     color: p.rating >= 4 ? "#1a7a4a" : p.rating >= 3 ? "#b45309" : "#cc2200",
                     fontSize: 11, fontWeight: 700,
-                    padding: "2px 7px", borderRadius: 6
+                    padding: "2px 7px", borderRadius: 6,
+                    fontFamily: "'Inter', 'Segoe UI', sans-serif"
                   }}>
                     ★ {p.rating.toFixed(1)}
                   </span>
-                  <span style={{ fontSize: 11, color: "#c0c0c0" }}>
+                  <span style={{
+                    fontSize: 11, color: "#c0c0c0",
+                    fontFamily: "'Inter', 'Segoe UI', sans-serif"
+                  }}>
                     {p.stock} in stock
                   </span>
                 </div>
 
                 {/* Price */}
                 <div style={{ display: "flex", alignItems: "center", gap: 7, marginTop: 2 }}>
-                  <span style={{ fontSize: 16, fontWeight: 700, color: "#1c1c1e" }}>
+                  <span style={{
+                    fontSize: 16, fontWeight: 700, color: "#1c1c1e",
+                    fontFamily: "'Inter', 'Segoe UI', sans-serif"
+                  }}>
                     ${p.price.toFixed(2)}
                   </span>
-                  <span style={{ fontSize: 12, color: "#c8c8c8", textDecoration: "line-through" }}>
+                  <span style={{
+                    fontSize: 12, color: "#c8c8c8", textDecoration: "line-through",
+                    fontFamily: "'Inter', 'Segoe UI', sans-serif"
+                  }}>
                     ${ogPrice}
                   </span>
                 </div>
@@ -255,7 +279,8 @@ export default function ListingPage() {
                       <span style={{
                         flex: 1, textAlign: "center", fontWeight: 700,
                         fontSize: 14, color: "#1c1c1e", padding: "8px 0",
-                        background: "#fff"
+                        background: "#fff",
+                        fontFamily: "'Inter', 'Segoe UI', sans-serif"
                       }}>
                         {inCart.qty}
                       </span>
