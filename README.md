@@ -1,10 +1,29 @@
-# E-Commerce Application
+# 🛍️ ShopNow - E-Commerce Application
 
-A React-based e-commerce application with:
+A React-based E-Commerce application that allows users to browse products, view product details, and manage a shopping cart with a bill summary.
 
-- Product Listing Page
+## ✨ Features
+
+- Product Listing using DummyJSON API
+- Search Products
+- Category Filter
+- Sort by Price & Rating
 - Product Details Page
-- Shopping Cart
+- Add to Cart
+- Quantity Management
 - Bill Summary
+- Responsive UI
 
-Built using React, React Router, and Context API.
+## 🛠️ Tech Stack
+
+- React.js
+- React Router DOM
+- Context API
+- JavaScript
+- CSS
+- DummyJSON API
+
+## 📡 API
+
+- All Products: `https://dummyjson.com/products?limit=194`
+- Single Product: `https://dummyjson.com/products/:id`
