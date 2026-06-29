@@ -28,9 +28,9 @@ export default function ListingPage() {
   if (sort === "rating") filtered.sort((a, b) => b.rating - a.rating);
 
   return (
-    <div style={{ background: "#f5f5f0", minHeight: "100vh", fontFamily: "'Segoe UI', sans-serif" }}>
+    <div style={{ background: "#f5f5f0", minHeight: "100vh", fontFamily: "'Segoe UI', sans-serif", overflowX: "hidden" }}>
 
-      {/* Hero */}
+      
       <div style={{
         background: "linear-gradient(160deg, #1c1c1e 0%, #2c2c2e 100%)",
         padding: "56px 32px",
@@ -71,7 +71,7 @@ export default function ListingPage() {
         </div>
       </div>
 
-      {/* Filter Bar */}
+      
       <div style={{
         position: "sticky", top: 56, zIndex: 90,
         background: "#fff", borderBottom: "1px solid #ebebeb",
@@ -114,7 +114,7 @@ export default function ListingPage() {
         </div>
       </div>
 
-      {/* Grid */}
+      
       <div style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
@@ -145,7 +145,7 @@ export default function ListingPage() {
                 transform: isHovered ? "translateY(-4px)" : "translateY(0)"
               }}
             >
-              {/* Image */}
+              
               <div style={{
                 background: "#fafaf8", height: 200,
                 display: "flex", alignItems: "center", justifyContent: "center",
@@ -177,7 +177,7 @@ export default function ListingPage() {
                 )}
               </div>
 
-              {/* Info */}
+              
               <div style={{ padding: "12px 14px 14px", display: "flex", flexDirection: "column", gap: 5 }}>
                 <p style={{
                   fontSize: 10, color: "#b0b0b0", textTransform: "uppercase",
@@ -190,7 +190,7 @@ export default function ListingPage() {
                   WebkitBoxOrient: "vertical", overflow: "hidden"
                 }}>{p.title}</p>
 
-                {/* Rating pill */}
+                
                 <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
                   <span style={{
                     background: p.rating >= 4 ? "#e8f5ee" : p.rating >= 3 ? "#fff4e5" : "#fff0f0",
@@ -203,7 +203,7 @@ export default function ListingPage() {
                   <span style={{ fontSize: 11, color: "#c0c0c0" }}>{p.stock} in stock</span>
                 </div>
 
-                {/* Price */}
+               
                 <div style={{ display: "flex", alignItems: "center", gap: 7, marginTop: 2 }}>
                   <span style={{ fontSize: 16, fontWeight: 700, color: "#1c1c1e" }}>
                     ${p.price.toFixed(2)}
@@ -213,7 +213,7 @@ export default function ListingPage() {
                   </span>
                 </div>
 
-                {/* Cart controls */}
+                
                 <div style={{ marginTop: 8 }} onClick={e => e.stopPropagation()}>
                   {inCart ? (
                     <div style={{
