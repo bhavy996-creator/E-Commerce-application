@@ -28,16 +28,21 @@ export default function ListingPage() {
   if (sort === "rating") filtered.sort((a, b) => b.rating - a.rating);
 
   return (
-    <div style={{ background: "#f5f5f0", minHeight: "100vh", fontFamily: "'Segoe UI', sans-serif", overflowX: "hidden" }}>
+    <div style={{
+      background: "#f5f5f0",
+      minHeight: "100vh",
+      fontFamily: "'Inter', 'Segoe UI', sans-serif",
+      overflowX: "hidden"
+    }}>
 
-      
+      {/* Hero */}
       <div style={{
         background: "linear-gradient(160deg, #1c1c1e 0%, #2c2c2e 100%)",
         padding: "56px 32px",
         textAlign: "center"
       }}>
         <h1 style={{
-          fontSize: 42, fontWeight: 700, color: "#f5f5f0",
+          fontSize: 42, fontWeight: 800, color: "#f5f5f0",
           letterSpacing: -1.2, marginBottom: 10, lineHeight: 1.15
         }}>
           Find what you love.
@@ -59,19 +64,21 @@ export default function ListingPage() {
             onChange={e => setSearch(e.target.value)}
             style={{
               flex: 1, background: "transparent", border: "none",
-              outline: "none", fontSize: 14, color: "#1c1c1e", padding: "9px 0"
+              outline: "none", fontSize: 14, color: "#1c1c1e",
+              padding: "9px 0", fontFamily: "'Inter', 'Segoe UI', sans-serif"
             }}
           />
           {search && (
             <button onClick={() => setSearch("")} style={{
               background: "#f0f0f0", border: "none", color: "#888",
-              borderRadius: 8, padding: "7px 11px", cursor: "pointer", fontSize: 12
+              borderRadius: 8, padding: "7px 11px", cursor: "pointer",
+              fontSize: 12, fontFamily: "'Inter', 'Segoe UI', sans-serif"
             }}>✕</button>
           )}
         </div>
       </div>
 
-      
+      {/* Filter Bar */}
       <div style={{
         position: "sticky", top: 56, zIndex: 90,
         background: "#fff", borderBottom: "1px solid #ebebeb",
@@ -90,21 +97,26 @@ export default function ListingPage() {
               color: category === c ? "#fff" : "#555",
               cursor: "pointer", fontSize: 12,
               fontWeight: category === c ? 600 : 400,
-              whiteSpace: "nowrap", transition: "all 0.12s"
+              whiteSpace: "nowrap", transition: "all 0.12s",
+              fontFamily: "'Inter', 'Segoe UI', sans-serif"
             }}>
               {c === "all" ? "All" : c}
             </button>
           ))}
         </div>
+
         <div style={{
           display: "flex", justifyContent: "space-between",
           alignItems: "center", padding: "10px 24px"
         }}>
-          <span style={{ fontSize: 13, color: "#aaa" }}>{filtered.length} products</span>
+          <span style={{ fontSize: 13, color: "#aaa" }}>
+            {filtered.length} products
+          </span>
           <select value={sort} onChange={e => setSort(e.target.value)} style={{
             fontSize: 13, color: "#333", background: "#fff",
             border: "1px solid #e5e5e5", borderRadius: 8,
-            padding: "5px 10px", cursor: "pointer", outline: "none"
+            padding: "5px 10px", cursor: "pointer", outline: "none",
+            fontFamily: "'Inter', 'Segoe UI', sans-serif"
           }}>
             <option value="default">Default</option>
             <option value="price-asc">Price ↑</option>
@@ -114,7 +126,7 @@ export default function ListingPage() {
         </div>
       </div>
 
-      
+      {/* Product Grid */}
       <div style={{
         display: "grid",
         gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
@@ -132,12 +144,10 @@ export default function ListingPage() {
               onMouseEnter={() => setHoveredId(p.id)}
               onMouseLeave={() => setHoveredId(null)}
               style={{
-                background: "#fff",
-                borderRadius: 16,
+                background: "#fff", borderRadius: 16,
                 border: "1px solid",
                 borderColor: isHovered ? "#d0d0d0" : "#ebebeb",
-                cursor: "pointer",
-                overflow: "hidden",
+                cursor: "pointer", overflow: "hidden",
                 boxShadow: isHovered
                   ? "0 12px 32px rgba(0,0,0,0.10)"
                   : "0 2px 8px rgba(0,0,0,0.05)",
@@ -145,52 +155,65 @@ export default function ListingPage() {
                 transform: isHovered ? "translateY(-4px)" : "translateY(0)"
               }}
             >
-              
+              {/* Image */}
               <div style={{
                 background: "#fafaf8", height: 200,
-                display: "flex", alignItems: "center", justifyContent: "center",
-                position: "relative", overflow: "hidden"
+                display: "flex", alignItems: "center",
+                justifyContent: "center", position: "relative",
+                overflow: "hidden"
               }}>
                 <img src={p.thumbnail} alt={p.title} style={{
                   maxHeight: 165, maxWidth: "82%", objectFit: "contain",
                   transition: "transform 0.3s",
                   transform: isHovered ? "scale(1.06)" : "scale(1)"
                 }} />
+
                 {p.discountPercentage > 2 && (
                   <span style={{
                     position: "absolute", top: 10, left: 10,
                     background: "#ff3b30", color: "#fff",
                     fontSize: 11, fontWeight: 700,
-                    padding: "3px 8px", borderRadius: 6
+                    padding: "3px 8px", borderRadius: 6,
+                    fontFamily: "'Inter', 'Segoe UI', sans-serif"
                   }}>
                     -{Math.round(p.discountPercentage)}%
                   </span>
                 )}
+
                 {p.stock < 10 && (
                   <span style={{
                     position: "absolute", bottom: 10, left: 10,
                     background: "rgba(28,28,30,0.7)", color: "#fff",
-                    fontSize: 10, padding: "2px 8px", borderRadius: 4
+                    fontSize: 10, padding: "2px 8px", borderRadius: 4,
+                    fontFamily: "'Inter', 'Segoe UI', sans-serif"
                   }}>
                     Only {p.stock} left
                   </span>
                 )}
               </div>
 
-              
-              <div style={{ padding: "12px 14px 14px", display: "flex", flexDirection: "column", gap: 5 }}>
+              {/* Info */}
+              <div style={{
+                padding: "12px 14px 14px",
+                display: "flex", flexDirection: "column", gap: 5
+              }}>
                 <p style={{
-                  fontSize: 10, color: "#b0b0b0", textTransform: "uppercase",
-                  letterSpacing: 1, fontWeight: 600
-                }}>{p.category}</p>
+                  fontSize: 10, color: "#b0b0b0",
+                  textTransform: "uppercase", letterSpacing: 1, fontWeight: 600
+                }}>
+                  {p.category}
+                </p>
 
                 <p style={{
-                  fontSize: 14, fontWeight: 600, color: "#1c1c1e", lineHeight: 1.4,
+                  fontSize: 14, fontWeight: 600, color: "#1c1c1e",
+                  lineHeight: 1.4,
                   display: "-webkit-box", WebkitLineClamp: 2,
                   WebkitBoxOrient: "vertical", overflow: "hidden"
-                }}>{p.title}</p>
+                }}>
+                  {p.title}
+                </p>
 
-                
+                {/* Rating */}
                 <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
                   <span style={{
                     background: p.rating >= 4 ? "#e8f5ee" : p.rating >= 3 ? "#fff4e5" : "#fff0f0",
@@ -200,10 +223,12 @@ export default function ListingPage() {
                   }}>
                     ★ {p.rating.toFixed(1)}
                   </span>
-                  <span style={{ fontSize: 11, color: "#c0c0c0" }}>{p.stock} in stock</span>
+                  <span style={{ fontSize: 11, color: "#c0c0c0" }}>
+                    {p.stock} in stock
+                  </span>
                 </div>
 
-               
+                {/* Price */}
                 <div style={{ display: "flex", alignItems: "center", gap: 7, marginTop: 2 }}>
                   <span style={{ fontSize: 16, fontWeight: 700, color: "#1c1c1e" }}>
                     ${p.price.toFixed(2)}
@@ -213,27 +238,32 @@ export default function ListingPage() {
                   </span>
                 </div>
 
-                
+                {/* Cart Controls */}
                 <div style={{ marginTop: 8 }} onClick={e => e.stopPropagation()}>
                   {inCart ? (
                     <div style={{
                       display: "flex", alignItems: "center",
-                      border: "1.5px solid #e0e0e0", borderRadius: 10, overflow: "hidden"
+                      border: "1.5px solid #e0e0e0", borderRadius: 10,
+                      overflow: "hidden"
                     }}>
                       <button onClick={() => changeQty(p.id, -1)} style={{
                         flex: 1, padding: "8px", background: "#f5f5f5",
                         border: "none", cursor: "pointer",
-                        fontSize: 16, fontWeight: 700, color: "#333"
+                        fontSize: 16, fontWeight: 700, color: "#333",
+                        fontFamily: "'Inter', 'Segoe UI', sans-serif"
                       }}>−</button>
                       <span style={{
                         flex: 1, textAlign: "center", fontWeight: 700,
                         fontSize: 14, color: "#1c1c1e", padding: "8px 0",
                         background: "#fff"
-                      }}>{inCart.qty}</span>
+                      }}>
+                        {inCart.qty}
+                      </span>
                       <button onClick={() => changeQty(p.id, 1)} style={{
                         flex: 1, padding: "8px", background: "#f5f5f5",
                         border: "none", cursor: "pointer",
-                        fontSize: 16, fontWeight: 700, color: "#333"
+                        fontSize: 16, fontWeight: 700, color: "#333",
+                        fontFamily: "'Inter', 'Segoe UI', sans-serif"
                       }}>+</button>
                     </div>
                   ) : (
@@ -244,7 +274,8 @@ export default function ListingPage() {
                       border: "1.5px solid #1c1c1e",
                       borderRadius: 10, cursor: "pointer",
                       fontSize: 13, fontWeight: 600,
-                      transition: "all 0.15s"
+                      transition: "all 0.15s",
+                      fontFamily: "'Inter', 'Segoe UI', sans-serif"
                     }}>
                       + Add to Cart
                     </button>
