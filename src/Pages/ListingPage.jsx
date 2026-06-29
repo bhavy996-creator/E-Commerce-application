@@ -3,11 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 
 export default function ListingPage() {
+
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
   const [sort, setSort] = useState("default");
-  const { cart, addToCart } = useCart();
+  const { cart, addToCart, changeQty } = useCart();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -57,26 +58,26 @@ export default function ListingPage() {
               <p style={{ color:"#D85A30", fontWeight:600 }}>${p.price.toFixed(2)}</p>
               <p style={{ fontSize:12, color:"#888" }}>⭐ {p.rating.toFixed(1)}</p>
               {cart[p.id] ? (
-  <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginTop:8 }}
-    onClick={e => e.stopPropagation()}>
-    <button onClick={() => changeQty(p.id, -1)}
-      style={{ width:32, height:32, border:"1px solid #ddd", borderRadius:8,
-               background:"#fff", cursor:"pointer", fontSize:18, fontWeight:600 }}>
-      −
-    </button>
-    <span style={{ fontWeight:600, fontSize:15 }}>{cart[p.id].qty}</span>
-    <button onClick={() => changeQty(p.id, 1)}
-      style={{ width:32, height:32, border:"1px solid #D85A30", borderRadius:8,
-               background:"#D85A30", color:"#fff", cursor:"pointer", fontSize:18, fontWeight:600 }}>
-      +
-    </button>
-  </div>
-) : (
-  <button onClick={e => { e.stopPropagation(); addToCart(p); }}
-    style={styles.btn}>
-    + Add to Cart
-  </button>
-)}
+                <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", marginTop:8 }}
+                  onClick={e => e.stopPropagation()}>
+                  <button onClick={() => changeQty(p.id, -1)}
+                    style={{ width:32, height:32, border:"1px solid #ddd", borderRadius:8,
+                             background:"#fff", cursor:"pointer", fontSize:18, fontWeight:600 }}>
+                    −
+                  </button>
+                  <span style={{ fontWeight:600, fontSize:15 }}>{cart[p.id].qty}</span>
+                  <button onClick={() => changeQty(p.id, 1)}
+                    style={{ width:32, height:32, border:"1px solid #D85A30", borderRadius:8,
+                             background:"#D85A30", color:"#fff", cursor:"pointer", fontSize:18, fontWeight:600 }}>
+                    +
+                  </button>
+                </div>
+              ) : (
+                <button onClick={e => { e.stopPropagation(); addToCart(p); }}
+                  style={styles.btn}>
+                  + Add to Cart
+                </button>
+              )}
             </div>
           </div>
         ))}
@@ -93,5 +94,4 @@ const styles = {
             display:"-webkit-box", WebkitLineClamp:2, WebkitBoxOrient:"vertical", overflow:"hidden" },
   btn: { width:"100%", marginTop:8, padding:"7px 0", border:"1px solid #ddd",
          borderRadius:8, background:"#fff", cursor:"pointer", fontSize:13 },
-  btnAdded: { background:"#D85A30", color:"#fff", border:"none" }
 };
