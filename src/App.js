@@ -9,14 +9,14 @@ function App() {
   return (
     <CartProvider>
       <BrowserRouter>
-        <div style={{ margin: 0, padding: 0, minHeight: "100vh" }}>
+       
           <Navbar />
           <Routes>
             <Route path="/" element={<ListingPage />} />
             <Route path="/product/:id" element={<ProductPage />} />
             <Route path="/cart" element={<CartPage />} />
           </Routes>
-        </div>
+        
       </BrowserRouter>
     </CartProvider>
   );
