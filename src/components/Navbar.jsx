@@ -3,7 +3,7 @@ import { useCart } from "../context/CartContext";
 import { useState } from "react";
 
 export default function Navbar() {
-  const { cart } = useNavigate ? useCart() : { cart: {} };
+  const { cart } = useCart();
   const navigate = useNavigate();
   const [hovered, setHovered] = useState(false);
   const totalItems = Object.values(cart).reduce((a, b) => a + b.qty, 0);
